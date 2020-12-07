@@ -75,3 +75,18 @@ func breakingRecords(scores: [Int]) -> [Int] {
     return maxAndMinPointsBroken
 
 }
+
+
+// You are given an array of integers. Find the number of pairs of size m such that its sum is equal to d
+func birthday(s: [Int], d: Int, m: Int) -> Int {
+    var c: Int = 0
+    
+    for i in 0...(s.count-m) {
+        // Retrieve a sub-array of s from i to i+m-1
+        var subArray = s[i...(i+(m-1))]
+        var sum = subArray.reduce(0, +)
+        if sum == d {c += 1}
+    }
+    return c
+
+}
