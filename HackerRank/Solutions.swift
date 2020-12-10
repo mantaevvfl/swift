@@ -115,3 +115,24 @@ func migratoryBirds(arr: [Int]) -> Int {
     return type
     
 }
+
+// Brian and Anna go out to dinner together. Brian receives the cost of each item that was ordered. Brian has to divide the total cost evenly between him and Anna. By taking into account that Anna does not eat one of the meals ordered, check whether Brian's calculation is correct. If it is, print "Appetit", otherwise, print what Brian owes Anna.
+func bonAppetit(bill: [Int], k: Int, b: Int) -> Void {
+    let totalCost = bill.reduce(0, +)
+    let bActual = (totalCost - bill[k])/2
+    return b == bActual ? print("Bon Appetit") : print(b - bActual)
+}
+
+// Determine the number of pairs of socks of the same color, For example, [2, 2, 1, 2, 3, 1] should return 2.
+func sockMerchant(n: Int, ar: [Int]) -> Int {
+    var numOfPairs: Int = 0
+    var socks: [Int] = ar
+    while !socks.isEmpty {
+        let sockColor = socks[0]
+        let l = socks.count
+        socks.removeAll(where: {$0 == sockColor})
+        numOfPairs += (l - socks.count)/2
+    }
+    return numOfPairs
+
+}
