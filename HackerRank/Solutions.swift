@@ -75,10 +75,9 @@ func breakingRecords(scores: [Int]) -> [Int] {
     return maxAndMinPointsBroken
 
 }
-<<<<<<< HEAD
 
 
-// You are given an array of integers. Find the number of pairs of size m such that its sum is equal to d
+// You are given an array of integers. Find the number of pairs of size m such that its sum is equal to d.
 func birthday(s: [Int], d: Int, m: Int) -> Int {
     var c: Int = 0
     
@@ -91,5 +90,28 @@ func birthday(s: [Int], d: Int, m: Int) -> Int {
     return c
 
 }
-=======
->>>>>>> c18be268ef9d56038445e7e0cb5aaa76516f8329
+
+// A record of different type of birds sighted have been given to you (ex. [2, 2, 1, 3]). Return the bird type that was sighted the most. If two or more birds were sighted the most, return the bird with the lowest type number.
+func migratoryBirds(arr: [Int]) -> Int {
+    
+    var maxSighted = 0
+    var type = 0
+    
+    var birdsSighted: [Int] = arr
+    
+    while !birdsSighted.isEmpty {
+        let typeEval = birdsSighted[0]
+        let l = birdsSighted.count // length before removal
+        birdsSighted.removeAll(where: {$0 == typeEval})
+        if (l - birdsSighted.count) > maxSighted {
+            maxSighted = l - birdsSighted.count
+            type = typeEval
+        }
+        else if (l - birdsSighted.count) == maxSighted {
+            if typeEval < type {type = typeEval}
+        }
+    }
+
+    return type
+    
+}
