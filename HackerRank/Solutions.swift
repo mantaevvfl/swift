@@ -136,3 +136,24 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
     return numOfPairs
 
 }
+
+// Alternative solution using Swift's Set type.
+func sockMerchant(n: Int, ar: [Int]) -> Int {
+    var uniqueSockColors = Set<Int>()
+    var numOfPairs: Int = 0
+
+    for sockColor in ar {
+        if !uniqueSockColors.contains(sockColor) {
+            uniqueSockColors.insert(sockColor)
+        }
+        else {
+            numOfPairs += 1
+            uniqueSockColors.remove(sockColor) // all elements in a set are unique
+        }
+    }
+
+    return numOfPairs
+
+}
+
+
