@@ -156,4 +156,7 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
 
 }
 
-
+// Find the minimum number of page turns to reach page number p. You can start from either the beginning or end of the book.
+func pageCount(n: Int, p: Int) -> Int {
+    return min(p/2, n/2-p/2)
+}
