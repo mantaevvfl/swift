@@ -160,3 +160,18 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
 func pageCount(n: Int, p: Int) -> Int {
     return min(p/2, n/2-p/2)
 }
+
+// Find and return the count of the longest subarray whose elements have an absolute difference less than or equal to 1. [1,1,2,2,4,4,5] -> [1,1,2,2] and [4,4,5] -> 4
+func pickingNumbers(a: [Int]) -> Int {
+    var maximum = 0
+    
+    for number in a {
+        var tempArray: [Int] = a
+        tempArray.removeAll(where: {$0 < (number-1) || $0 > number})
+        
+        if tempArray.count > maximum {maximum = tempArray.count}
+    }
+    
+    return maximum
+
+}
