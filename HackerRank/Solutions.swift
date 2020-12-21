@@ -175,3 +175,10 @@ func pickingNumbers(a: [Int]) -> Int {
     return maximum
 
 }
+
+// A character in a video game is taking part in a hurdle race with hurdles of varying heights. The character can jump k units high and can drink a magic potion to increase his height by 1 unit. How many does of the potion should the character take to be able to jump all the hurdles?
+func hurdleRace(k: Int, height: [Int]) -> Int {
+    let tallestHurdle: Int = height.max()!
+    let diff = tallestHurdle - k
+    return diff > 0 ? diff : 0
+}
