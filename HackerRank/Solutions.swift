@@ -202,3 +202,12 @@ func designerPdfViewer(h: [Int], word: String) -> Int {
     let w: Int = word.count
     return l*w
 }
+
+// The Utopian tree has 2 growth cycles per year. It doubles in height every spring and increases in height by 1 meter every summer. Assuming that the tree is planted in spring and has an initial height of 1 meter, find the height of the tree after n number of growth cycles.
+func utopianTree(n: Int) -> Int {
+    var h: Int = 0
+    for cycleNo in 0...n {
+        h = ((cycleNo % 2) == 1 ? (h * 2) : (h + 1))
+    }
+    return h
+}
