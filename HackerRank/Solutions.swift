@@ -182,3 +182,23 @@ func hurdleRace(k: Int, height: [Int]) -> Int {
     let diff = tallestHurdle - k
     return diff > 0 ? diff : 0
 }
+
+
+
+// Given the height of each letter in the alphabet, find the area of any word (assume that it takes the shape of a rectangle).
+func designerPdfViewer(h: [Int], word: String) -> Int {
+   
+    // An array containing all the letters of the alphabet
+    let alphabet: [Character] = (0...25).map {
+        i in
+        Character(Unicode.Scalar(97 + i))
+    }
+    
+    var wh: [Int] = [Int]()
+    for char in word {
+        wh.append(h[alphabet.firstIndex(of: char)!])
+    }
+    let l: Int = wh.max()!
+    let w: Int = word.count
+    return l*w
+}
