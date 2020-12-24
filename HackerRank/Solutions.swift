@@ -211,3 +211,22 @@ func utopianTree(n: Int) -> Int {
     }
     return h
 }
+
+// Perform k number of right circular rotations on an array and then return the value of the elements in the array at the specified indices. A right circular rotation is when the last array element is moved to the first position and the remaining elements are shifted one to the right.
+func circularArrayRotation(a: [Int], k: Int, queries: [Int]) -> [Int] {
+    
+    var i: Int = k % a.count
+    
+    var temp: [Int] = Array(repeating: 0, count: a.count)
+    for number in a {
+        temp[i] = number
+        i += 1
+        if i == a.count {i = 0}
+    }
+    
+    var result: [Int] = []
+    for q in queries {
+        result.append(temp[q])
+    }
+    return result
+}
