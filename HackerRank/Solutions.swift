@@ -230,3 +230,16 @@ func circularArrayRotation(a: [Int], k: Int, queries: [Int]) -> [Int] {
     }
     return result
 }
+
+// Given an array of n distinct integers p(1), p(2),...,p(n) where 1 <= p(x) <= n, find the value of y such that p(p(y)) = x for every x.
+func permutationEquation(p: [Int]) -> [Int] {
+    
+    var result: [Int] = []
+    for x in 1...p.count {
+        // Find z such that p(z) = x, then find y such that p(y) = z
+        let y = (p.firstIndex(of: (p.firstIndex(of: x)! + 1) )! + 1)
+        result.append(y)
+    }
+    return result
+
+}
