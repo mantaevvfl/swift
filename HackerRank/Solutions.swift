@@ -243,3 +243,18 @@ func permutationEquation(p: [Int]) -> [Int] {
     return result
 
 }
+
+// You enter an electronics store and are in need of a keyboard and a hard drive. You are looking to buy at the highest possible price that is within your budget given the cost of each keyboard and hard drive available to you. If it is not possible to buy both items, return -1.
+func getMoneySpent(keyboards: [Int], drives: [Int], b: Int) -> Int {
+    
+    var max: Int = -1
+    for keyboardPrice in keyboards {
+        for drivePrice in drives {
+            let cost = keyboardPrice + drivePrice
+            if max < cost && cost <= b {max = cost}
+        }
+    }
+    
+    return max
+
+}
