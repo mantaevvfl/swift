@@ -258,3 +258,8 @@ func getMoneySpent(keyboards: [Int], drives: [Int], b: Int) -> Int {
     return max
 
 }
+
+// There are n number of prisoners sitting around at a table and a police officer will be handing out m number of sweets to these prisoners sequentially starting from chair number s. If the last sweet tastes awful, determine the prisoner that should be warned.
+func saveThePrisoner(n: Int, m: Int, s: Int) -> Int {
+    return ((s - 1 + m - 1) % n) + 1
+}
