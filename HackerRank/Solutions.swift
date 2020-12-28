@@ -263,3 +263,12 @@ func getMoneySpent(keyboards: [Int], drives: [Int], b: Int) -> Int {
 func saveThePrisoner(n: Int, m: Int, s: Int) -> Int {
     return ((s - 1 + m - 1) % n) + 1
 }
+
+// An angry professor decides that he will cancel class if a certain number of students do not show up on time. Given the arrival time of each student and the professor's threshold value, find out whether the class should be cancelled or not.
+func angryProfessor(k: Int, a: [Int]) -> String {
+    var onTime: Int = 0
+    for arrivalTime in a {
+        if arrivalTime <= 0 {onTime += 1}
+    }
+    return onTime >= k ? "NO" : "YES"
+}
