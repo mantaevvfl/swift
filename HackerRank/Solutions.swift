@@ -272,3 +272,16 @@ func angryProfessor(k: Int, a: [Int]) -> String {
     }
     return onTime >= k ? "NO" : "YES"
 }
+
+// Two cats are chasing a mouse. If the cats are some distance units away from the mouse, determine which cat will be the first to reach the mouse. Assume that the cats move at equal speeds and the mouse does not move - it will, however, move if the cats arrive at the same time.
+func catAndMouse(x: Int, y: Int, z: Int) -> String {
+    if abs(z-x) < abs(z-y) {
+        return "Cat A"
+    }
+    else if abs(z-x) > abs(z-y) {
+        return "Cat B"
+    }
+    else {
+        return "Mouse C"
+    }
+}
