@@ -275,13 +275,31 @@ func angryProfessor(k: Int, a: [Int]) -> String {
 
 // Two cats are chasing a mouse. If the cats are some distance units away from the mouse, determine which cat will be the first to reach the mouse. Assume that the cats move at equal speeds and the mouse does not move - it will, however, move if the cats arrive at the same time.
 func catAndMouse(x: Int, y: Int, z: Int) -> String {
-    if abs(z-x) < abs(z-y) {
-        return "Cat A"
+    let a = abs(x-z)
+    let b = abs(y-z)
+    
+    if a < b {return "Cat A"}
+    else if b < a {return "Cat B"}
+    else {return "Mouse C"}
+}
+
+// A hiker wants to know how many valleys have been encountered during their hike. Assume that the hiker starts at sea level and that each step represents a 1 unit change in altitude. Given the sequence of up and down steps during the hike, find and return the number of valleys traversed. Note that a valley is sequence of consecutive steps below sea level, starting with a step down from sea level and ending with a step up to sea level.
+func countingValleys(steps: Int, path: String) -> Int {
+    
+    var level: Int = 0
+    var noOfValleys: Int = 0
+    
+    for step in path {
+        switch step {
+            case "U":
+                level += 1
+            case "D":
+                level -= 1
+            default:
+                break
+        }
+        
+        if level == 0 && step == "U" {noOfValleys += 1}
     }
-    else if abs(z-x) > abs(z-y) {
-        return "Cat B"
-    }
-    else {
-        return "Mouse C"
-    }
+    return noOfValleys
 }
