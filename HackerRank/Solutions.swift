@@ -303,3 +303,20 @@ func countingValleys(steps: Int, path: String) -> Int {
     }
     return noOfValleys
 }
+
+// HackerLand Enterprise is using a viral advertising strategy to promote their product. On their first day, they introduced the new product to exactly 5 people on social media and 2 of them liked it. The next day, the 2 people that liked it shared it with 3 of their friends. Assuming that the number of people that like the product on any given day is always the floor(receipients/2) and that no one receives the advertisement twice, calculate the total number of likes after n days.
+func viralAdvertising(n: Int) -> Int {
+    
+    var shared: Int = 5
+    var liked: Int = 2
+    var cumulative: Int = 2
+    
+    for _ in 1..<n {
+        shared = liked * 3
+        liked = shared/2
+        cumulative += liked
+    }
+    
+    return cumulative
+    
+}
