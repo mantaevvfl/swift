@@ -320,3 +320,17 @@ func viralAdvertising(n: Int) -> Int {
     return cumulative
     
 }
+
+// Find and count the number of digits of any given integer n such that n % digit = 0.
+func findDigits(n: Int) -> Int {
+    var count: Int = 0
+    var num: Int = n
+    
+    while num > 0 {
+        let d = num % 10
+        if (d != 0 && (n % d) == 0) {count += 1}
+        num /= 10
+    }
+    
+    return count
+}
