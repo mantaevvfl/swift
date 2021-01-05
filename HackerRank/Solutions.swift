@@ -334,3 +334,19 @@ func findDigits(n: Int) -> Int {
     
     return count
 }
+
+// Given the actual returned and deadline date of a borrowed book, find out how much the borrower should be fined. If no fine is necessary, return 0. The fee structure is as follows:
+// 1. If the book is returned on or before the deadline date, the fine is equal to 0
+// 2. If the book is returned after the deadline day but still within the same calendar month and year, the fine is equal to 15 x (number of days late)
+// 3. If the book is returned after the deadline month but still within the same calendar year, the fine is equal to 500 x (number of months late)
+// 4. If the book is returned after the deadline year, the fine is equal to 10,000
+func libraryFine(d1: Int, m1: Int, y1: Int, d2: Int, m2: Int, y2: Int) -> Int {
+    var fine: Int = 0
+    
+    if y1 > y2 {fine = 10000}
+    else if m1 > m2 && y1 == y2 {fine = (500 * abs(m1-m2))}
+    else if d1 > d2 && m1 == m2 && y1 == y2 {fine = (15 * abs(d1-d2))}
+    
+    return fine
+
+}
