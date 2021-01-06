@@ -350,3 +350,19 @@ func libraryFine(d1: Int, m1: Int, y1: Int, d2: Int, m2: Int, y2: Int) -> Int {
     return fine
 
 }
+
+// You are given the length of every stick. Your task is to cut down each stick by the length of the smallest stick and discard the sticks of the shortest length (counts as one iteration). Return the number of sticks remaining after each iteration until there are no more sticks left.
+func cutTheSticks(arr: [Int]) -> [Int] {
+    var result: [Int] = []
+    var temp: [Int] = arr
+    
+    while !temp.isEmpty {
+        result.append(temp.count)
+        let l = temp.min()
+        temp.removeAll(where: { (length: Int) in length == l })
+        temp.map({ (length: Int) in length - l! })
+    }
+    
+    return result
+
+}
