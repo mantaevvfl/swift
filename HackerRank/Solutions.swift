@@ -366,3 +366,21 @@ func cutTheSticks(arr: [Int]) -> [Int] {
     return result
 
 }
+
+// A character in a game is hopping on clouds. In the game, the character starts at cloud 0 and has an energy level of 100. A jump of size K uses 1 unit of energy and the character arrives on cloud (I+K) % N after the jump, where I is the current cloud number that the character is on and N is the total number of clouds. The game ends when the character goes back to cloud 0. Given the values of N, K, and the configuration of clouds C, determine the energy level of the character when the game ends.
+func jumpingOnClouds(c: [Int], k: Int) -> Int {
+    var e: Int = 100
+    var i: Int = 0
+    var n: Int = c.count
+
+    while (i + k) % n != 0 {
+        // Jump onto the next cloud
+        i = (i + k) % n
+        if c[i] == 1 {e = (e - 1 - 2)}
+        else {e -= 1}
+    }
+
+    
+    return c[0] == 0 ? (e - 1) : (e - 1 - 2)
+
+}
