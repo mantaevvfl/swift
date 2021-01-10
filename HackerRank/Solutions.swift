@@ -384,3 +384,16 @@ func jumpingOnClouds(c: [Int], k: Int) -> Int {
     return c[0] == 0 ? (e - 1) : (e - 1 - 2)
 
 }
+
+// The distance between two elements in an array is the number of indices between them. Given an array of values a, find the minimum distance between any pair of equal values in the array. If no such value exists, return -1.
+func minimumDistances(a: [Int]) -> Int {
+    var diff: Int = a.count
+    
+    for (i, n) in a.enumerated() {
+        if let j = a.lastIndex(of: n) {
+            if 0 < abs(j-i) && abs(j-i) < diff {diff = abs(j-i)}
+        }
+    }
+    
+    return diff != a.count ? diff : -1
+}
