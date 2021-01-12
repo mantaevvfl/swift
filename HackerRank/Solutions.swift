@@ -397,3 +397,16 @@ func minimumDistances(a: [Int]) -> Int {
     
     return diff != a.count ? diff : -1
 }
+
+// Given an array of integers, find the minimum number of elements to delete to leave only elements of wqual values.
+func equalizeArray(arr: [Int]) -> Int {
+    // Find the element that is repeated the most in the array
+    var count: [Int: Int] = [:]
+    
+    for n in arr {
+        count[n] = (count[n] ?? 0) + 1
+    }
+    
+    return arr.count - count.values.max()!
+    
+}
