@@ -410,3 +410,14 @@ func equalizeArray(arr: [Int]) -> Int {
     return arr.count - count.values.max()!
     
 }
+
+// You are buying video games form a store called Mist. Usually, all the games are sold at the same price, P dollars. However, they are planning to have a special Halloween sale next month where customers can buy video games for a cheaper price. Specifically, the first game will cost P dollars and then every subsequent purchase will cost D dollars less than the previous one. This continues until the price is less than or equal to M dollars, after which the games will cost M dollars. Given your initial balance S, find and return the number of games you can afford.
+func howManyGames(p: Int, d: Int, m: Int, s: Int) -> Int {
+    var count: Int = 0, balance = s, price = p
+    while balance >= price {
+        count += 1
+        balance = balance - price
+        price = max(price-d, m)
+    }
+    return count
+}
