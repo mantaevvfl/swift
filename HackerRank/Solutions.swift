@@ -421,3 +421,19 @@ func howManyGames(p: Int, d: Int, m: Int, s: Int) -> Int {
     }
     return count
 }
+
+// Little Bobby loves chocolate. He goes to a local store to buy some. At the store, they are having a promotion. If Little Bobby saves enough wrappers, he could turn them in for a free chocolate bar. Suppose you are given the amount of cash N Little Bobby has on him, the cost of each chocolate bar C, and the number of wrappers M needed in order to get a free chocolate bar. Find the total number of chocolate bars that Little Bobby can eat to take full advantage of the promotion.
+func chocolateFeast(n: Int, c: Int, m: Int) -> Int {
+    
+    var barsAtHand = n/c, barsEaten = 0, wrappers = 0
+    
+    while barsAtHand > 0 {
+        barsEaten += barsAtHand
+        wrappers += barsAtHand
+        
+        barsAtHand = wrappers / m
+        wrappers = wrappers % m
+    }
+    
+    return barsEaten
+}
