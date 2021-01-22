@@ -437,3 +437,16 @@ func chocolateFeast(n: Int, c: Int, m: Int) -> Int {
     
     return barsEaten
 }
+
+// A driver is driving on a freeway and notices that the check engine light has turned on. The car needs to get serviced immediately. Luckily, the driver happens to be driving alongside a service lane but the lane varies in width along its length. Given the various widths of the service lane and an entry and exit point, find the maximum vehicle size that can travel through the segment safely.
+func serviceLane(n: Int, width: [Int], cases: [[Int]]) -> [Int] {
+    var maxWidth: [Int] = []
+    
+    for points in cases {
+        let i = points[0], j = points[1]
+        let widths = [Int](width[i...j])
+        maxWidth.append(widths.min()!)
+    }
+    
+    return maxWidth
+}
