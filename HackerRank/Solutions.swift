@@ -450,3 +450,30 @@ func serviceLane(n: Int, width: [Int], cases: [[Int]]) -> [Int] {
     
     return maxWidth
 }
+
+// There will be a number of people attending a programming contest. Each of them may be well versed in a number of topics. Given a list of topics for each person, represented as binary strings, find the maximum number of topics a 2-person team can know and also the number of such 2-person teams available. Note that 1 means that the topic is known and 0 means that it is not.
+func acmTeam(topic: [String]) -> [Int] {
+    let noOfSubjects = topic[0].count
+    var max = 0
+    var noOfTeams = 0
+    for (i,t) in topic[0..<topic.count].enumerated() {
+        for j in topic[(i+1)...] {
+            var count = 0
+            for subjectNo in 0..<noOfSubjects {
+                let index = topic[0].index(topic[0].startIndex, offsetBy: subjectNo)
+                if String(t[index]) == "1" || String(j[index]) == "1" {
+                    count += 1
+                }
+                
+                if count > max {
+                    max = count
+                    noOfTeams = 0
+                }
+                if count == max {
+                    noOfTeams += 1
+                }
+            }
+        }
+    }
+    return [max, noOfTeams]
+}
