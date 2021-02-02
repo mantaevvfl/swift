@@ -477,3 +477,17 @@ func acmTeam(topic: [String]) -> [Int] {
     }
     return [max, noOfTeams]
 }
+
+// Lisa has received a new math workbook. It contains math problems, grouped into chapters. Lisa believes that a problem is special if its index (within a chapter) is the same as the page number where it is located. Determine the number of special problems contained in Lisa's workbook given the total number of problems for every chapter I, arr[I], the number of problems a single page can hold K, and the number of chapters in the workbook N.
+func workbook(n: Int, k: Int, arr: [Int]) -> Int {
+    var specialProblems: Int = 0
+    var pageNo: Int = 1
+    for chapter in 1...n {
+
+        for problemNo in 1...arr[chapter-1] {
+            if problemNo == pageNo {specialProblems += 1}
+            if problemNo == arr[chapter-1] || problemNo % k == 0 {pageNo += 1}
+        }
+    }
+    return specialProblems
+}
