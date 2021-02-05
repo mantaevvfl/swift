@@ -491,3 +491,26 @@ func workbook(n: Int, k: Int, arr: [Int]) -> Int {
     }
     return specialProblems
 }
+
+// Happy Ladybugs is a board game. The rule is that a ladybug can only be happy if its neighbouring cell is a ladybug of the same color. Determine whether all the ladybugs can be happy after some number of moves. You are given a string b representing the board game, where the ith character of the string denotes the ith cell of the board game.
+func happyLadybugs(b: String) -> String {
+    // Check the occurence of each character in the string
+    for character in b {
+        if character != "_" && b.filter({$0 == character}).count == 1 {return "NO"}
+    }
+    
+    if b.filter({$0 == "_"}).count == 0 {
+        // Check to see if the ladybugs are already happy
+        let startIndex = b.index(b.startIndex, offsetBy: 1)
+        let endIndex = b.index(b.endIndex, offsetBy: -2) // \n character
+        for (i, character) in b[startIndex...endIndex].enumerated() {
+            let leftIndex = b.index(before: b.index(b.startIndex, offsetBy: i+1))
+            let rightIndex = b.index(after: b.index(b.startIndex, offsetBy: i+1))
+            if b[leftIndex] != character && b[rightIndex] != character {
+                return "NO"
+            }
+        }
+    }
+    return "YES"
+    
+}
