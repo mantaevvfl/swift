@@ -521,13 +521,12 @@ func kaprekarNumbers(p: Int, q: Int) -> Void {
     
     for n in p...q {
         let str = String(n), d = str.count, square = n * n, strSquare = String(square)
-        let r = strSquare.suffix(d), l = strSquare.prefix(strSquare.count-d)
-        
         if strSquare.count > 1 {
-            if Int(r)! + Int(l)! == n {kaprekar.append(n)}
+            let l = strSquare.prefix(strSquare.count-d), r = strSquare.suffix(d)
+            if Int(l)! + Int(r)! == n {kaprekar.append(n)}
         }
-        else {
-            if Int(r)! == n {kaprekar.append(n)}
+        else if square == n {
+            kaprekar.append(n)
         }
     }
     
