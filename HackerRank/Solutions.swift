@@ -514,3 +514,29 @@ func happyLadybugs(b: String) -> String {
     return "YES"
     
 }
+
+// A kaprekar number is a positive whole number with a special property. If you square it, then split it into two integers, the sum of those integers is equal to the same value you started with. Find all kaprekar numbers from p to q.
+func kaprekarNumbers(p: Int, q: Int) -> Void {
+    var kaprekar: [Int] = []
+    
+    for n in p...q {
+        let str = String(n), d = str.count, square = n * n, strSquare = String(square)
+        let r = strSquare.suffix(d), l = strSquare.prefix(strSquare.count-d)
+        
+        if strSquare.count > 1 {
+            if Int(r)! + Int(l)! == n {kaprekar.append(n)}
+        }
+        else {
+            if Int(r)! == n {kaprekar.append(n)}
+        }
+    }
+    
+    if !kaprekar.isEmpty {
+        for number in kaprekar {
+            print(number, terminator: " ")
+        }
+    }
+    else {
+        print("INVALID RANGE")
+    }
+}
