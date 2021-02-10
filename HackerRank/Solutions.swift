@@ -539,3 +539,14 @@ func kaprekarNumbers(p: Int, q: Int) -> Void {
         print("INVALID RANGE")
     }
 }
+
+// A string that contains every letter of the alphabet is a pangram. Given a sentence, determine whether it is a pangram in the English alphabet. Ignore case.
+func pangrams(s: String) -> String {
+    var uniqueCharacters: Set<String> = []
+    for c in s {
+        if c != " " {
+            uniqueCharacters.insert(c.lowercased())
+        }
+    }
+    return uniqueCharacters.count == 26 ? "pangram" : "not pangram"
+}
