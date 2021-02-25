@@ -550,3 +550,19 @@ func pangrams(s: String) -> String {
     }
     return uniqueCharacters.count == 26 ? "pangram" : "not pangram"
 }
+
+// Reduce a string of lowercase characters by doing a series of operations. In each operation, select pair of adjacent letters that match, and delete them. Delete as many characters as possible using this method and return the resulting string. If the string is empty, return "Empty String"
+func superReducedString(s: String) -> String {
+    // Reduce the string to its canonical form
+    var uniqueCharacters: Set<Character> = Set<Character>()
+    for character in s {
+        if uniqueCharacters.contains(character) {
+            uniqueCharacters.remove(character)
+        }
+        else {
+            uniqueCharacters.insert(character)
+        }
+        
+    }
+    return uniqueCharacters.isEmpty ? "Empty String" : String(uniqueCharacters)
+}
