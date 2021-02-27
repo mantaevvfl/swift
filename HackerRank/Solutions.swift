@@ -566,3 +566,13 @@ func superReducedString(s: String) -> String {
     }
     return uniqueCharacters.isEmpty ? "Empty String" : String(uniqueCharacters)
 }
+
+// A message containing a series of SOS is being sent from Mars to planet Earth. However, some letters of the message change during the transmission due to cosmic radiation. Find and return the number of characters that have been altered.
+func marsExploration(s: String) -> Int {
+    var count: Int = 0
+    let sos: String = "SOS"
+    for (i, character) in s.enumerated() {
+        if character != sos[sos.index(sos.startIndex, offsetBy: i % 3)] {count += 1}
+    }
+    return count
+}
