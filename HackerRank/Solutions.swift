@@ -576,3 +576,17 @@ func marsExploration(s: String) -> Int {
     }
     return count
 }
+
+// Determine whether the given string has a subsequence that spells out "hackerrank". Note that a subsequence maintains order of its characters selected from the sequence.
+func hackerrankInString(s: String) -> String {
+    let targetStr: String = "hackerrank"
+    if s.count < targetStr.count {return "NO"}
+    
+    var targetIndex = 0
+    for character in s {
+        if targetStr[targetStr.index(targetStr.startIndex, offsetBy: targetIndex)] == character && targetIndex < targetStr.count {
+            targetIndex += 1
+        }
+    }
+    return targetIndex == targetStr.count ? "YES" : "NO"
+}
