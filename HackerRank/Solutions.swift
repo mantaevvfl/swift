@@ -590,3 +590,12 @@ func hackerrankInString(s: String) -> String {
     }
     return targetIndex == targetStr.count ? "YES" : "NO"
 }
+
+// Given a string S that contains a sequence of words written in CamelCase, determine the number of words in s.
+func camelcase(s: String) -> Int {
+    var wordCount: Int = 1
+    for character in s {
+        if character.isUppercase {wordCount += 1}
+    }
+    return wordCount
+}
