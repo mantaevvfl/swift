@@ -599,3 +599,19 @@ func camelcase(s: String) -> Int {
     }
     return wordCount
 }
+
+// There are a collection of rocks with minerals embedded in each one. Each mineral is depicted as a lowercase character in the range from a to z. Note that there may be multiple occurences of a mineral in a rock. A mineral is a gemstone if it is embedded at least once in each of the rocks in the collection. Determine the number of gemstones.
+func gemstones(arr: [String]) -> Int {
+    var gemstoneCount: Int = 0
+    
+    for mineral in arr[0] {
+        var mineralCount: Int = 1
+        for rock in arr[1...] {
+            if rock.contains(mineral) {mineralCount += 1}
+        }
+        if mineralCount == arr.count {gemstoneCount += 1}
+    }
+    
+    return gemstoneCount
+
+}
