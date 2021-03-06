@@ -615,3 +615,31 @@ func gemstones(arr: [String]) -> Int {
     return gemstoneCount
 
 }
+
+// Julius Caesar protected his confidential information by encrypting it using a cipher. Caesar's cipher shifts each letter by some number of letters. In the case where a shift takes you past the end of the alphabet, wrap around to the start of the alphabet. Your task is to encrypt the message that is given using Caesar's cipher.
+func caesarCipher(s: String, k: Int) -> String {
+    var encryptedString: String = String()
+    
+    for character in s {
+        
+        // All other characters remain unencrypted
+        if !character.isLetter {
+            encryptedString += String(character)
+            continue
+        }
+        
+        var asciiValue = character.asciiValue! + UInt8(k)
+        // A letter can be either lowercase or uppercase
+        if character.isUppercase && asciiValue > 90 {
+            asciiValue = (asciiValue % 90) + 64
+        }
+        else if character.isLowercase && asciiValue > 122 {
+            asciiValue = (asciiValue % 122) + 96
+        }
+        
+        let encryptedCharacter = String(UnicodeScalar(asciiValue))
+        encryptedString += encryptedCharacter
+    }
+    
+    return encryptedString
+}
