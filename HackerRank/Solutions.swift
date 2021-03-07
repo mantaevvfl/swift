@@ -643,3 +643,27 @@ func caesarCipher(s: String, k: Int) -> String {
     
     return encryptedString
 }
+
+// Determine which pair or pairs of elements in the given array have the smallest absolute difference between them.
+func closestNumbers(arr: [Int]) -> [Int] {
+    var arr1 = arr
+    var result: [Int] = []
+    // Sort the given array
+    arr1.sort()
+    // Find the minimal absolute difference between two numbers
+    var min: Int = arr1.max()! - arr1.min()!
+    for (i, number) in arr1[0..<(arr1.count-1)].enumerated() {
+        if arr1[i+1] - number < min {
+            min = arr1[i+1] - number
+        }
+    }
+    // Find and append the pairs with the minimal absolute difference between them to the result
+    for (i, number) in arr1[0..<(arr1.count-1)].enumerated() {
+        if abs(arr1[i+1] - number) == min {
+            result.append(number)
+            result.append(arr1[i+1])
+        }
+    }
+    
+    return result
+}
