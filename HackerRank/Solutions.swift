@@ -667,3 +667,25 @@ func closestNumbers(arr: [Int]) -> [Int] {
     
     return result
 }
+
+// James changes all the words in a letter into palindromes. He uses the following rules: 1. You can only reduce the value of the letter by 1 i.e he can change d to c but not c to d 2. The letter a cannot be reduced any further. Each reduction in value of a letter is considered to be a single operation. Find and return the minimum number of operations required to convert the string into a palindrome.
+func theLoveLetterMystery(s: String) -> Int {
+    var count: Int = 0
+    
+    var i: Int = 0
+    var j: Int = s.count-1
+    while i < j {
+        
+        let iCharacter = s[s.index(s.startIndex, offsetBy: i)]
+        let jCharacter = s[s.index(s.startIndex, offsetBy: j)]
+        
+        if iCharacter != jCharacter {
+            count += abs(Int(iCharacter.asciiValue!) - Int(jCharacter.asciiValue!))
+        }
+        
+        i += 1
+        j -= 1
+    }
+    
+    return count
+}
