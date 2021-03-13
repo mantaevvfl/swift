@@ -689,3 +689,21 @@ func theLoveLetterMystery(s: String) -> Int {
     
     return count
 }
+
+// There is a strange counter. It starts at 3 at the first second. Each second, it decrements by 1, until it reaches 1. In the next second, it resets to 2 x initial number of the prior cycle and continues counting down. Find and return the number that is displayed by the counter at time t.
+func strangeCounter(t: Int) -> Int {
+    var initialPriorCycle: Int = 3
+    var currentValue: Int = 3
+    
+    for _ in 2...t {
+        if currentValue == 1 {
+            currentValue = initialPriorCycle * 2
+            initialPriorCycle *= 2
+        }
+        else {
+            currentValue -= 1
+        }
+    }
+    
+    return currentValue
+}
