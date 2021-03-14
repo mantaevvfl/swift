@@ -707,3 +707,16 @@ func strangeCounter(t: Int) -> Int {
     
     return currentValue
 }
+
+// You will have to determine if a string is funny or not. A string is funny if the absolute difference in the ascii values of adjacent characters in the string is the same as the absolute difference in ascii values of adjacent characters in reverse.
+func funnyString(s: String) -> String {
+    
+    let asciiOriginal = s.map({$0.asciiValue!})
+    let asciiReverse = s.reversed().map({$0.asciiValue!})
+    
+    for i in 0..<(s.count-1) {
+        if abs(Int(asciiOriginal[i])-Int(asciiOriginal[i+1])) != abs(Int(asciiReverse[i])-Int(asciiReverse[i+1])) {return "Not Funny"}
+    }
+    
+    return "Funny"
+}
