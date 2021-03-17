@@ -720,3 +720,10 @@ func funnyString(s: String) -> String {
     
     return "Funny"
 }
+
+// You are given a odd number of numbers and are asked to find the median. Remember that the median is essentially the middle number after the list has been sorted. It has the same number of elements before it as after.
+func findMedian(arr: [Int]) -> Int {
+    var temp = arr
+    temp.sort()
+    return temp[temp.count/2]
+}
