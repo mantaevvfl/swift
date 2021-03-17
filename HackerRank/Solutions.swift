@@ -727,3 +727,19 @@ func findMedian(arr: [Int]) -> Int {
     temp.sort()
     return temp[temp.count/2]
 }
+
+// Split the given string into two substrings of equal length. Find and return the minimum number of characters that need to be altered in order to make the two substrings anagrams of each other.
+func anagram(s: String) -> Int {
+    if s.count % 2 != 0 {return -1}
+    
+    let middle: Int = s.count/2
+    // Represent each substring in their canonical form
+    let lStr: String = String(s.prefix(middle).sorted()), rStr: String = String(s.suffix(middle).sorted())
+    
+    var count: Int = 0
+    for i in 0..<lStr.count {
+        if lStr[lStr.index(lStr.startIndex, offsetBy: i)] != rStr[rStr.index(rStr.startIndex, offsetBy: i)] {count += 1}
+    }
+    
+    return count
+}
