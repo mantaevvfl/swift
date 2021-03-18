@@ -743,3 +743,18 @@ func anagram(s: String) -> Int {
     
     return count
 }
+
+// Determine if two strings have a common substring. A substring can be as small as one character.
+func twoStrings(s1: String, s2: String) -> String {
+    
+    // Instead of iterating through one of the given strings, it is better to use an array of fixed length to avoid timeout
+    let alphabet: [Character] = (97...122).map {i in
+        Character(UnicodeScalar(i))
+    }
+    
+    for letter in alphabet {
+        if s1.contains(letter) && s2.contains(letter) {return "YES"}
+    }
+    
+    return "NO"
+}
