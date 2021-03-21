@@ -758,3 +758,27 @@ func twoStrings(s1: String, s2: String) -> String {
     
     return "NO"
 }
+
+// A weighted string is a string of lowercase English characters where each character has a weight (a = 1, b = 2, c = 3,..., z = 26). The weight of a string is the sum of the weights of its characters. Also, note that a uniform string consists of a single character repeated 1 or more times. Find the weight of each possible continguous uniform substrings of string s (let this be U) and then return an array where each element is either "Yes" if queries[i] is an element of U or "No" otherwise.
+func weightedUniformStrings(s: String, queries: [Int]) -> [String] {
+    var weights: [String:Int] = [String:Int]()
+    var result: [String] = []
+    
+    var key: String = String(s.first!)
+    weights[key] = (Int(Character(key).asciiValue!) % 97) + 1
+    for i in 1..<s.count {
+        let prev: Character = s[s.index(s.startIndex, offsetBy: i-1)]
+        let current: Character = s[s.index(s.startIndex, offsetBy: i)]
+        
+        // Determine key for dicitionary
+        if current == prev {key += String(current)}
+        else {key = String(current)}
+        
+        weights[key] = (((Int(current.asciiValue!) % 97) + 1) * key.count)
+    }
+    // Check if the query exists in weights
+    for query in queries {
+        weights.values.contains(query) ? result.append("Yes") : result.append("No")
+    }
+    return result
+}
