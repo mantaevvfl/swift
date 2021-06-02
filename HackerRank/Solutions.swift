@@ -783,7 +783,7 @@ func weightedUniformStrings(s: String, queries: [Int]) -> [String] {
     return result
 }
 
-// You are given a sequence of integers arr and asked to find the number of triplets such that i < j < k and arr[j] - arr[i] = arr[k] - arr[j] = d contained in the sequence of integers.
+// You are given a increasing sequence of integers arr and asked to find the number of triplets such that i < j < k and arr[j] - arr[i] = arr[k] - arr[j] = d contained in the sequence.
 func beautifulTriplets(d: Int, arr: [Int]) -> Int {
     var count: Int = 0
     for i in arr {
