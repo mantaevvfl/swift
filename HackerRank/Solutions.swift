@@ -783,11 +783,21 @@ func weightedUniformStrings(s: String, queries: [Int]) -> [String] {
     return result
 }
 
-// You are given a increasing sequence of integers arr and asked to find the number of triplets such that i < j < k and arr[j] - arr[i] = arr[k] - arr[j] = d contained in the sequence.
+// You are given an increasing sequence of integers arr and asked to find the number of triplets such that i < j < k and arr[j] - arr[i] = arr[k] - arr[j] = d contained in the sequence.
 func beautifulTriplets(d: Int, arr: [Int]) -> Int {
     var count: Int = 0
     for i in arr {
         if arr.contains(i+d) && arr.contains(i+d*2) {count += 1}
     }
     return count
+}
+
+// Find and return the minimum cost of creating a copy of string s under the following conditions: 1. Appending a character to the string copy costs one dollar 2. Appending a substring of string s to string copy can be done at no cost. The operations can be done unlimited number of times.
+func stringConstruction(s: String) -> Int {
+    var uniqueCharacters: Set<Character> = Set<Character>()
+    // find unique characters of the string (i.e remove all duplicates)
+    for character in s {
+        uniqueCharacters.insert(character)
+    }
+    return uniqueCharacters.count
 }
