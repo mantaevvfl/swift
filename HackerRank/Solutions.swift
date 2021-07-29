@@ -801,3 +801,9 @@ func stringConstruction(s: String) -> Int {
     }
     return uniqueCharacters.count
 }
+
+// Alice considers a binary string beautiful if it does not contain the substring "010". Alice can change a number in the substring from 0 to 1 or vice versa in one step. Determine the minimum number of steps needed to make the string beautiful to Alice.
+func beautifulBinaryString(b: String) -> Int {
+    let substring = "010"
+    return b.components(separatedBy: substring).count-1
+}
