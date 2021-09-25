@@ -29,3 +29,9 @@ func longestCommonPrefix(_ strs: [String]) -> String {
     }
     return maxPrefix
 }
+
+// Given an array of integers nums and a number val, remove all occurences of val in nums in-place. The function should return the number of elements left in nums after the removal.
+func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+    nums.removeAll(where: {(num: Int) in num == val})
+    return nums.count
+}
