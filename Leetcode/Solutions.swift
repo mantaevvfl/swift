@@ -35,3 +35,18 @@ func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
     nums.removeAll(where: {(num: Int) in num == val})
     return nums.count
 }
+
+// Given a string s containing only the characters "(", ")", "{", "}", "[", and "]", determine if the string is valid (i.e opening and closing brackets are of the same type and in the correct order).
+func isValid(_ s: String) -> Bool {
+    var stack: [Character] = []
+    for bracket in s {
+        if bracket == "[" || bracket == "(" || bracket == "{" {
+            stack.append(bracket)
+        }
+        else if (bracket == "]" && stack.last == "[") || (bracket == ")" && stack.last == "(") || (bracket == "}" && stack.last == "{") {
+            stack.popLast()
+        }
+        else { return false }
+    }
+    return stack.isEmpty
+}
