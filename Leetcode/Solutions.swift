@@ -50,3 +50,18 @@ func isValid(_ s: String) -> Bool {
     }
     return stack.isEmpty
 }
+
+// Given an array of integers in non-decreasing order, remove all duplicates in the array in-place. Store the result in the first k slots of the array (in some languages it is impossible to change the size of the array). Return k.
+func removeDuplicates(_ nums: inout [Int]) -> Int {
+    if nums.count <= 1 {return nums.count}
+    var target: Int = nums[0]
+    var j: Int = 1
+    for (i, num) in nums[1...].enumerated() {
+        if target != num {
+            nums[j] = num
+            target = num
+            j += 1
+        }
+    }
+    return j
+}
