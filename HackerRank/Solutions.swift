@@ -807,3 +807,15 @@ func beautifulBinaryString(b: String) -> Int {
     let substring = "010"
     return b.components(separatedBy: substring).count-1
 }
+
+// A new mobile game came out with consecutively numbered clouds. These clouds can be either a thunderhead or cumulus. A player can jump on any cumulus cloud with a number equal to the number of the current cloud plus 1 or 2. Determine the minimum number of jumps that the player must make to reach the last cloud. Note that the game can always be won.
+func jumpingOnClouds(c: [Int]) -> Int {
+    var jumps: Int = 0
+    var i: Int = 0
+    while i < c.count - 1 {
+        if i + 2 < c.count && c[i+2] == 0 {jumps += 1; i += 2}
+        else if i + 1 < c.count && c[i+1] == 0 {jumps += 1; i += 1}
+        else {return jumps}
+    }
+    return jumps
+}
