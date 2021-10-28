@@ -819,3 +819,14 @@ func jumpingOnClouds(c: [Int]) -> Int {
     }
     return jumps
 }
+
+// Two friends go to visit an ice cream parlour and pool their money. They always choose two distinct flavours and spend all of their moeny. Givwn a list of prices for each ice cream flavour, determine the two flavours that will cost all of their money.
+func icecreamParlor(m: Int, arr: [Int]) -> [Int] {
+    var result: [Int] = []
+    for (i, n1) in arr[..<arr.endIndex].enumerated() {
+        for (j, n2) in arr[(i+1)...].enumerated() {
+            if n1 + n2 == m {result = [i+1, i+j+2]} // 1-based indexing
+        }
+    }
+    return result
+}
