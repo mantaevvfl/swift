@@ -830,3 +830,20 @@ func icecreamParlor(m: Int, arr: [Int]) -> [Int] {
     }
     return result
 }
+
+// A left rotation on an array shifts each array element 1 unit to the left. Note that the lowest index item should wrap around to the highest index of the array. In other words, you are dealing with a circular array. Given an array of integers a and a number d, perform d left rotations on a and return the updated array.
+func rotLeft(a: [Int], d: Int) -> [Int] {
+    let n: Int = a.count
+    var array = a
+    if d == n {return array}
+    
+    var temp: [Int] = Array(array[0..<d%n])
+    for i in 0..<n {
+        let index = (i + d) % n
+        array[i] = array[index]
+    }
+    
+    array.replaceSubrange(n-d..<n,  with: temp)
+    
+    return array
+}
