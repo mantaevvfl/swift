@@ -26,3 +26,13 @@ func challengeSameLetters(s1: String, s2: String) -> Bool {
     // convert input strings to their canoncial forms (i.e most basic forms)
     return s1.sorted() == s2.sorted()
 }
+
+// 5. Write a program that retruns the total number of occurrences of a character in a string.
+func challengeCount(input: String, c: Character) -> Int {
+    // input: "The rain in Spain", character: "a" -> 2
+    var count: Int = 0
+    for character in input {
+        if character == c {count += 1}
+    }
+    return count
+}
