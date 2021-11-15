@@ -36,3 +36,14 @@ func challengeCount(input: String, c: Character) -> Int {
     }
     return count
 }
+
+// 6. Write a function that removes duplicate letters of a given string.
+func challengeRemoveDuplicates(input: String) -> String {
+    var result: String = ""
+    for character in input {
+        if !result.contains(character) {
+            result.append(character)
+        }
+    }
+    return result
+}
