@@ -47,3 +47,21 @@ func challengeRemoveDuplicates(input: String) -> String {
     }
     return result
 }
+
+// 7. Write a function that replaces any consecutive whitespaces with a single space.
+func challengeCondenseWhitespace(input: String) -> String {
+    // [space][space][space]a -> [space]a
+    var result: String = String()
+    var seenSpace: Bool = false
+    
+    for character in input {
+        if character == " " {
+            if seenSpace { continue } else { seenSpace = true }
+        } else {
+            seenSpace = false
+        }
+        
+        result.append(character)
+    }
+    return result
+}
