@@ -116,3 +116,12 @@ extension Collection where Iterator.Element: Comparable {
         return Array(array.prefix(n))
     }
 }
+
+// 39. Extend collections with a function that returns an array of strings sorted by their lengths (i.e longest to shortest)
+extension Collection where Iterator.Element == String {
+    func sortLength() -> [String] {
+        return self.sorted(by: {
+            $0.count > $1.count
+        })
+    }
+}
