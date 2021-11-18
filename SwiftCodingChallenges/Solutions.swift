@@ -89,3 +89,20 @@ func challengeFizzBuzz() -> Void {
 func challengeRandomNumber(min: Int, max: Int) -> Int {
     Int(arc4random_uniform(UInt32(max - min + 1))) + min
 }
+
+//----- Collections -----//
+
+// 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
+extension Collection where Iterator.Element == Int {
+    func digitCount(_ count: Character) -> Int {
+        var result = 0
+        // loop though the digits of each number and increae the count if digit is equal to the count
+        for number in self {
+            let string = String(number)
+            for digit in string {
+                if digit == count { result += 1 }
+            }
+        }
+        return result
+    }
+}
