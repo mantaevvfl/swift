@@ -106,3 +106,13 @@ extension Collection where Iterator.Element == Int {
         return result
     }
 }
+
+// 38. Find and return an array containing the N smallest items in a given collection. Note that the returned array must be sorted in increasing order.
+extension Collection where Iterator.Element: Comparable {
+    func smallestN(n: Int) -> [Iterator.Element] {
+        if n >= self.count {return []}
+        // sort the array in increasing order and then use the prefix method to capture the first N elements of the array
+        let array = self.sorted()
+        return Array(array.prefix(n))
+    }
+}
