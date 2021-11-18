@@ -65,3 +65,27 @@ func challengeCondenseWhitespace(input: String) -> String {
     }
     return result
 }
+
+//----- Numbers -----//
+
+// 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
+func challengeFizzBuzz() -> Void {
+    for count in 1...100 {
+        if count % 3 == 0 {
+            if count % 5 == 0 {
+                print("Fizz Buzz")
+            } else {
+                print("Fizz")
+            }
+        } else if count % 5 == 0 {
+            print("Buzz")
+        } else {
+            print(count)
+        }
+    }
+}
+
+// 17. Write a program that generates a random number between given minimum and maximum values of a range (inclusive).
+func challengeRandomNumber(min: Int, max: Int) -> Int {
+    Int(arc4random_uniform(UInt32(max - min + 1))) + min
+}
