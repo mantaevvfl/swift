@@ -138,3 +138,20 @@ func missingNumbers(input: [Int]) -> [Int] {
     }
     return result
 }
+
+// 41. Write an extension to Collection that returns the median value of a given sorted integer array if there is one. If not, then it returns nil.
+extension Collection where Iterator.Element == Int {
+    func median() -> Int? {
+        if self.isEmpty {return nil}
+        
+        let middleIndex = (self.count - 1) / 2
+        let sorted = self.sorted()
+        
+        if self.count % 2 == 1 {
+            return sorted[middleIndex]
+        } else {
+            // Get the mean of the two middle values
+            return sorted[middleIndex] + sorted[middleIndex - 1] / 2
+        }
+    }
+}
