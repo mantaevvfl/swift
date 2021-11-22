@@ -155,3 +155,13 @@ extension Collection where Iterator.Element == Int {
         }
     }
 }
+
+// 42. Write an extension for all collections that reimplements the index(of:) method.
+extension Collection where Iterator.Element: Equatable {
+    func findIndex(of element: Iterator.Element) -> Int? {
+        for (i, value) in self.enumerated() {
+            if value == element {return i}
+        }
+        return nil
+    }
+}
