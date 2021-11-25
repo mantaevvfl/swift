@@ -165,3 +165,58 @@ extension Collection where Iterator.Element: Equatable {
         return nil
     }
 }
+
+// 43. Create a linked list of lowercae English alphabet letters with one method that traverses all the nodes and prints their letters on a single line separated by spaces.
+class LinkedList {
+    var head: Node?
+    var tail: Node?
+    
+    var first: Node? {
+        return head
+    }
+    
+    var last: Node? {
+        return tail
+    }
+    var isEmpty: Bool {
+        return head == nil
+    }
+    
+    func append(value: Character) -> Void {
+        let newNode = Node(value: value)
+        
+        if let tailNode = tail {
+            tailNode.next = newNode
+        } else {
+            head = newNode
+        }
+        tail = newNode
+    }
+    
+    func printNodes() {
+        var currentNode = head
+        while let node = currentNode {
+            print(node.value, terminator: " ")
+            currentNode = node.next
+        }
+    }
+    
+}
+
+class Node {
+    var value: Character
+    var next: Node?
+    
+    init(value: Character, next: Node? = nil) {
+        self.value = value
+        self.next = next
+    }
+}
+
+let linkedList = LinkedList()
+let alphabet = (97...122).map {
+    Character(UnicodeScalar($0))
+}
+for letter in alphabet {
+    linkedList.append(value: letter)
+}
