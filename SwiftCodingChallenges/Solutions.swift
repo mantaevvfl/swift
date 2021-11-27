@@ -220,3 +220,17 @@ let alphabet = (97...122).map {
 for letter in alphabet {
     linkedList.append(value: letter)
 }
+
+// 44. Extend your linked list class to include a method that returns the node at mid-point of the list using no more one loop.
+extension LinkedList {
+    func findCenterNode() -> Node? {
+        // 1, 2, 3, 4, 5 -> 3
+        var pointerA: Node? = head
+        var pointerB: Node? = head
+        while pointerB != nil && pointerB?.next != nil {
+            pointerA = pointerA?.next
+            pointerB = pointerB?.next?.next
+        }
+        return pointerA
+    }
+}
