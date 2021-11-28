@@ -234,3 +234,14 @@ extension LinkedList {
         return pointerA
     }
 }
+
+// 46. Write an extension for all collections that reimplements the map method.
+extension Collection {
+    func myMap<T>(_ mapFunction: (Self.Element) throws -> T) rethrows -> [T] {
+        var result: [T] = []
+        for element in self {
+            result.append(try(mapFunction(element)))
+        }
+        return result
+    }
+}
