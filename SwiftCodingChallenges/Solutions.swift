@@ -245,3 +245,16 @@ extension Collection {
         return result
     }
 }
+
+// 47. Write an extnension for all collections that reimplements the min method.
+extension Collection where Element: Comparable {
+    func myMin() -> Element? {
+        var it = makeIterator()
+        guard var min = it.next() else {return nil}
+        while let item = it.next() {
+            if item < min {min = item}
+        }
+        return min
+    }
+}
+
