@@ -258,3 +258,14 @@ extension Collection where Element: Comparable {
     }
 }
 
+// 8. Write a function that accepts two strings and returns true if one string is a rotation of the other, taking letter case into account.
+func challengeStringRotation2(s1: String, s2: String) -> Bool {
+    let lowercaseA = s1.lowercased(), lowercaseB  = s2.lowercased()
+    guard let startingLetter = lowercaseA.first, let startIndex = lowercaseB.firstIndex(of: startingLetter) else {return false}
+    // create substrings
+    let distance = lowercaseB.distance(from: lowercaseB.startIndex, to:  startIndex)
+    let newString = lowercaseB.suffix(from: startIndex) + lowercaseB.prefix(distance)
+    print(newString)
+    return newString == lowercaseA
+
+}
