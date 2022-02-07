@@ -66,6 +66,38 @@ func challengeCondenseWhitespace(input: String) -> String {
     return result
 }
 
+// 8. Write a function that accepts two strings and returns true if one string is a rotation of the other, taking letter case into account.
+func challengeStringRotation(s1: String, s2: String) -> Bool {
+    let lowercaseA = s1.lowercased(), lowercaseB  = s2.lowercased()
+    guard let startingLetter = lowercaseA.first, let startIndex = lowercaseB.firstIndex(of: startingLetter) else {return false}
+    // create substrings
+    let distance = lowercaseB.distance(from: lowercaseB.startIndex, to:  startIndex)
+    let newString = lowercaseB.suffix(from: startIndex) + lowercaseB.prefix(distance)
+    print(newString)
+    return newString == lowercaseA
+
+}
+
+func challengeStringRotation2(s1: String, s2: String) -> Bool {
+    guard s1.count == s2.count else {return false}
+    let combined = s1 + s1
+    return combined.contains(s2)
+}
+
+// 9. Write a function that determines whether a given string is an English pangram, ignoring letter case.
+func challengeStringPangram(input: String) -> Bool {
+    let inputLetters = input.filter {!$0.isWhitespace}.lowercased()
+    let uniqueLetters = Set(inputLetters)
+    let alphabet = Set("abcdefghijklmnopqrstuvwxyz")
+    return uniqueLetters == alphabet
+}
+
+func challengeStringPangram2(input: String) -> Bool {
+    let set = Set(input.lowercased())
+    let uniqueLetters = set.filter {$0 >= "a" && $0 <= "z"}
+    return uniqueLetters.count == 26
+}
+
 //----- Numbers -----//
 
 // 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
@@ -256,30 +288,4 @@ extension Collection where Element: Comparable {
         }
         return min
     }
-}
-
-// 8. Write a function that accepts two strings and returns true if one string is a rotation of the other, taking letter case into account.
-func challengeStringRotation(s1: String, s2: String) -> Bool {
-    let lowercaseA = s1.lowercased(), lowercaseB  = s2.lowercased()
-    guard let startingLetter = lowercaseA.first, let startIndex = lowercaseB.firstIndex(of: startingLetter) else {return false}
-    // create substrings
-    let distance = lowercaseB.distance(from: lowercaseB.startIndex, to:  startIndex)
-    let newString = lowercaseB.suffix(from: startIndex) + lowercaseB.prefix(distance)
-    print(newString)
-    return newString == lowercaseA
-
-}
-
-func challengeStringRotation2(s1: String, s2: String) -> Bool {
-    guard s1.count == s2.count else {return false}
-    let combined = s1 + s1
-    return combined.contains(s2)
-}
-
-// 9. Write a function that determines whether a given string is an English pangram, ignoring letter case.
-func challengeStringPangram(input: String) -> Bool {
-    let inputLetters = input.filter {!$0.isWhitespace}.lowercased()
-    let uniqueLetters = Set(inputLetters)
-    let alphabet = Set("abcdefghijklmnopqrstuvwxyz")
-    return uniqueLetters == alphabet
 }
