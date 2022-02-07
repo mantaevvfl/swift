@@ -98,6 +98,20 @@ func challengeStringPangram2(input: String) -> Bool {
     return uniqueLetters.count == 26
 }
 
+// 10. Given a string in English, return a tuple containing the number of vowels and consonants.
+func challengeVowelsAndConsonants(input: String) -> (Int, Int) {
+    var vowelCount: Int = 0, consonantCount: Int = 0
+    let vowels = "AaEeIiOoUu"
+    for character in input {
+        if vowels.contains(character) {
+            vowelCount += 1
+        } else if ("a" <= character && character <= "z" || "A" <= character && character <= "Z") {
+            consonantCount += 1
+        }
+    }
+    return (vowelCount, consonantCount)
+}
+
 //----- Numbers -----//
 
 // 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
