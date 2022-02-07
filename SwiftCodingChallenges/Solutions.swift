@@ -275,3 +275,11 @@ func challengeStringRotation2(s1: String, s2: String) -> Bool {
     let combined = s1 + s1
     return combined.contains(s2)
 }
+
+// 9. Write a function that determines whether a given string is an English pangram, ignoring letter case.
+func challengeStringPangram(input: String) -> Bool {
+    let inputLetters = input.filter {!$0.isWhitespace}.lowercased()
+    let uniqueLetters = Set(inputLetters)
+    let alphabet = Set("abcdefghijklmnopqrstuvwxyz")
+    return uniqueLetters == alphabet
+}
