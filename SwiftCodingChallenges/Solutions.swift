@@ -112,6 +112,19 @@ func challengeVowelsAndConsonants(input: String) -> (Int, Int) {
     return (vowelCount, consonantCount)
 }
 
+// 11. Write a function that takes in two strings and returns true if they are identical in length and differ by no more than three letters, taking letter case and string order into account.
+func challengeThreeDifferentLetters(s1: String, s2: String) -> Bool {
+    if s1.count != s2.count {return false}
+    
+    var count: Int = 0
+    for (i, character) in s1.enumerated() {
+        if s2[s2.index(s2.startIndex, offsetBy: i)] != character {
+            if !s2.contains(character) { count += 1 } else { return false } // invalidates string order
+        }
+    }
+    return count <= 3
+}
+
 //----- Numbers -----//
 
 // 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
