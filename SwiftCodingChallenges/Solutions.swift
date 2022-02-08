@@ -138,6 +138,20 @@ func challengeThreeDifferentLetters2(s1: String, s2: String) -> Bool {
     return true
 }
 
+// 12. Write a function that accepts a string containing words with similar prefixes, separated by spaces, and returns the longest substring that prefixes all words.
+func challengeLongestPrefix(input: String) -> String {
+    var longestPrefix: String = String()
+    let words = input.split(separator: " ")
+    for (i, character) in words[0].enumerated() {
+        for word in words[1...] {
+            let characters = Array(word)
+            if characters[i] != character {return longestPrefix}
+        }
+        longestPrefix.append(character)
+    }
+    return longestPrefix
+}
+
 //----- Numbers -----//
 
 // 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
