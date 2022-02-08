@@ -125,6 +125,19 @@ func challengeThreeDifferentLetters(s1: String, s2: String) -> Bool {
     return count <= 3
 }
 
+func challengeThreeDifferentLetters2(s1: String, s2: String) -> Bool {
+    guard s1.count == s2.count else {return false}
+    var count: Int = 0
+    let s1CharArray = Array(s1), s2CharArray = Array(s2)
+    for (i, character) in s1CharArray.enumerated() {
+        if s2CharArray[i] != character {
+            count += 1
+            if count == 4 {return false}
+        }
+    }
+    return true
+}
+
 //----- Numbers -----//
 
 // 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
