@@ -141,6 +141,7 @@ func challengeThreeDifferentLetters2(s1: String, s2: String) -> Bool {
 // 12. Write a function that accepts a string containing words with similar prefixes, separated by spaces, and returns the longest substring that prefixes all words.
 func challengeLongestPrefix(input: String) -> String {
     var longestPrefix: String = String()
+    guard !input.isEmpty else {return longestPrefix}
     let words = input.split(separator: " ")
     for (i, character) in words[0].enumerated() {
         for word in words[1...] {
