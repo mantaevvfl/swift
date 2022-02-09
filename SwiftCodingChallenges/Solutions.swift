@@ -153,6 +153,27 @@ func challengeLongestPrefix(input: String) -> String {
     return longestPrefix
 }
 
+// 13. Write a function that accepts a string as input and then returns how many times each letter occurs in a single run, taking letter case into account.
+func challengeRunLengthEncoding(input: String) -> String {
+    guard !input.isEmpty else {return ""}
+    let characterArray = Array(input)
+    var output = String()
+    var count = 0
+    
+    var current = characterArray[0]
+    for character in input {
+        if character != current {
+            output += "\(current)\(count)"
+            current = character
+            count = 1
+        } else {
+            count += 1
+        }
+    }
+    output += "\(current)\(count)"
+    return output
+}
+
 //----- Numbers -----//
 
 // 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
