@@ -174,6 +174,15 @@ func challengeRunLengthEncoding(input: String) -> String {
     return output
 }
 
+// 15. Write a function that returns a string with each of its words reversed but in its original order, without using a loop.
+func challengeStringReversal(input: String) -> String {
+    let words = input.components(separatedBy: " ")
+    let reversedWords = words.map {
+        String($0.reversed())
+    }
+    return reversedWords.joined(separator: " ")
+}
+
 //----- Numbers -----//
 
 // 16. Write a program that counts from 1 to 100 and prints out "Fizz" if the count is evenly divisble 3, "Buzz" if the count is evenly divisble by 5, and "Fizz Buzz" if the count is evenly divisible by 3 and 5. For all other cases, print the count number.
