@@ -207,6 +207,17 @@ func challengeRandomNumber(min: Int, max: Int) -> Int {
     Int(arc4random_uniform(UInt32(max - min + 1))) + min
 }
 
+// 18. Write a function that accepts two positive integers and raises the first to the power of the second.
+func myPow(number: Int, exponent: Int) -> Int {
+    guard number > 0 else { print("Invalid mathematical operation: number cannot be zero"); return 0 }
+    if exponent == 0 { return 1 }
+    var sum: Int = 1
+    for _ in 1...exponent {
+        sum *= number
+    }
+    return sum
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
