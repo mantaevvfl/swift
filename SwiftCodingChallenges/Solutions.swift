@@ -218,6 +218,15 @@ func myPow(number: Int, exponent: Int) -> Int {
     return sum
 }
 
+func myPow2(number: Int, exponent: Int) -> Int {
+    guard number > 0, exponent > 0 else { return 0 }
+    var sum: Int = number
+    for _ in 2...exponent {
+        sum *= number
+    }
+    return sum
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
