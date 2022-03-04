@@ -227,6 +227,19 @@ func myPow2(number: Int, exponent: Int) -> Int {
     return sum
 }
 
+// 20. Write a function that accepts an integer and returns true if the number is prime.
+func isPrime(number: Int) -> Bool {
+    guard number > 1 else {return false}
+    guard number != 2 else {return true}
+    
+    let max = Int(sqrt(Double(number)))
+    
+    for divisor in 2...max {
+        if number % divisor == 0 {print(divisor); return false}
+    }
+    return true
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
