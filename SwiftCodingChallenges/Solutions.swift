@@ -240,6 +240,11 @@ func isPrime(number: Int) -> Bool {
     return true
 }
 
+// 23. Write a function that accepts a string and returns true if it only contains n umbers i.e digits from 0 to 9.
+func challengeContainsNumbers(input: String) -> Bool {
+    return input.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
