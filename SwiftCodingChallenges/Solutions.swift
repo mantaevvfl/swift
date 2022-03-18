@@ -245,6 +245,23 @@ func challengeContainsNumbers(input: String) -> Bool {
     return input.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
 }
 
+// 24. Given a stirng that contains numbers and letters, write a function that finds only the numbers in the string and returns their sum.
+func challengeSumOfNumbers(input: String) -> Int {
+    var numberString: String = String()
+    var sum: Int = 0
+    for character in input {
+        if character.isNumber {
+            numberString.append(character)
+        } else {
+            if let number = Int(numberString) {
+                sum += number
+            }
+            numberString = String()
+        }
+    }
+    return numberString.isEmpty ? sum : sum + Int(numberString)!
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
