@@ -262,6 +262,21 @@ func challengeSumOfNumbers(input: String) -> Int {
     return numberString.isEmpty ? sum : sum + Int(numberString)!
 }
 
+// 25. Write a function that returns the square root of a positive integer, rounded down to the nearest integer, without using the sqrt() method.
+func challengeCalculateSquareRoot(input: Int) -> Int {
+    // something to the power of 2 equals input
+    // input = x * x = x^2
+    for number in 1...(input/2) {
+        let numberSquared = number * number
+        if numberSquared == input {
+            return number
+        } else if numberSquared > input {
+            return number - 1
+        }
+    }
+    return 0
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
