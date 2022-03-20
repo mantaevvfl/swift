@@ -295,6 +295,13 @@ func challengeCalculateSquareRoot2(input: Int) -> Int {
     return lowerBound
 }
 
+// 26. Write a function that subtracts one positive integer from another without using the minus operator,
+func challengeSubtract(subtract x: Int, from y: Int) -> Int {
+    // x - y = m
+    // -x + y = -m
+     return (-y + x) * -1
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
