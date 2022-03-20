@@ -277,6 +277,24 @@ func challengeCalculateSquareRoot(input: Int) -> Int {
     return 0
 }
 
+func challengeCalculateSquareRoot2(input: Int) -> Int {
+    guard input != 1 else {return 1}
+    var lowerBound = 0
+    var upperBound = (input / 2) + 1 // Why the + 1?
+    while lowerBound + 1 < upperBound {
+        let middle = lowerBound + ( (upperBound - lowerBound) / 2)
+        let middleSquared = middle * middle
+        if middleSquared == input {
+            return middle
+        } else if middleSquared < input {
+            lowerBound = middle
+        } else {
+            upperBound = middle
+        }
+    }
+    return lowerBound
+}
+
 //----- Collections -----//
 
 // 37. Write an extension for a collection of integers that returns the number of times a specific digit appears in all of its elements.
