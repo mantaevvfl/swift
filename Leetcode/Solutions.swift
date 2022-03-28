@@ -65,3 +65,14 @@ func removeDuplicates(_ nums: inout [Int]) -> Int {
     }
     return j
 }
+
+// Given an integer number n, return the difference between the product of its digits and sum of its digits.
+func subtractProductAndSum(_ n: Int) -> Int {
+    var totalSum: Int = 0, totalProduct: Int = 1
+    for digitCharacter in String(n) {
+        let digit = Int(String(digitCharacter))!
+        totalSum += digit
+        totalProduct *= digit
+    }
+    return totalProduct - totalSum
+}
