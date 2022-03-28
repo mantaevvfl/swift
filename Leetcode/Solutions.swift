@@ -76,3 +76,16 @@ func subtractProductAndSum(_ n: Int) -> Int {
     }
     return totalProduct - totalSum
 }
+
+func subtractProductAndSum2(_ n: Int) -> Int {
+    var totalSum = 0, totalProduct = 1
+    // converting an integer to an array of its digits using compact map
+    let arrayOfDigits: [Int] = String(n).compactMap { digitChar in
+        digitChar.wholeNumberValue
+    }
+    for digit in arrayOfDigits {
+        totalSum += digit
+        totalProduct *= digit
+    }
+    return totalProduct - totalSum
+}
